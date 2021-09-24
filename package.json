@@ -1,0 +1,28 @@
+{
+  "name": "cardgame-war",
+  "version": "1.0.0",
+  "description": "Simulate two players in the card game, storing win history in db",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "prestart": "npm run build",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobsbird/CardGame-War.git"
+  },
+  "author": "Tobias Bird",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tobsbird/CardGame-War/issues"
+  },
+  "homepage": "https://github.com/tobsbird/CardGame-War#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12"
+  }
+}

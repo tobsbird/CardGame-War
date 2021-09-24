@@ -1,0 +1,28 @@
+<body>
+    <section id="heading">
+        <div>
+            <h1 id="stats_title">War</h1>
+            <button class="title_button" onclick="location.href='/'">Home</button>
+        </div>
+    </section>
+    <section id="statistics">
+        <table>
+            <tr>
+                <th>Player Name</th>
+                <th># of Games</th>
+                <th># of Wins</th>
+            </tr>
+            {{#each players}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.num_games}}</td>
+                <td>{{this.num_wins}}</td>
+            </tr>
+            {{/each}}
+        </table>        
+    </section>
+    <section id="add_player">
+        <button id="add_button" type="button" name="button">Add Player</button>
+    </section>
+
+</body>

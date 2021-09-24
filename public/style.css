@@ -1,0 +1,95 @@
+/* home style */
+#title{
+    background-color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#home_title{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#actions{
+    position: absolute;
+    top: 40%;
+    width: 90%;
+    right: 3%;
+}
+
+.title_button{
+    width: 40px;
+}
+
+/* stats style*/
+#heading{
+    background-color: red;
+}
+
+#stats_title{
+    text-align: center;
+    padding: 10px;
+    font-size: 60px;
+}
+
+
+table{
+    border: 1px solid black;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 102px;
+
+}
+
+th{
+    border: 1px solid black;
+    text-align: center;
+    font-size: 22px;
+    width: 239px;
+}
+
+td{
+    border: 1px solid black;
+    text-align: center;
+    font-size: 19px;
+}
+
+#add_player{
+    position: fixed;
+    bottom: 100px;
+    width: 100%;
+}
+
+#add_button{
+    border-radius: 10px;
+    border-width: 5px;
+    position: absolute;
+    left: 50%;
+    font-size: 27px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: translate(-50%, -50%);
+}
+
+#web_error{
+    text-align: center;
+    font-size: 87px;
+}
+
+#error_image{
+    height: 128px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 82px;
+}
+
+#error_description{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 28px;
+}
