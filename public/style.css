@@ -6,33 +6,85 @@
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+    position: relative;
 }
 
-#home_title{
+#title_section{
+    display: inline-block;
+}
+
+.home_title{
     font-size: 50px;
-    font-weight: bold;
+    font-weight: bold;  
 }
 
 #actions{
     position: absolute;
-    top: 40%;
+    bottom: 152px;
     width: 90%;
     right: 3%;
 }
 
 .title_button{
-    width: 40px;
+    position: absolute;
+    top: 31px;
+    right: 31px;
+    border-width: 5px;
+    border-radius: 5px;
+    width: 74px;
+}
+
+#players{
+    text-align: center;
+}
+
+.main_card_title{
+    height: 263px;
+    margin-left: 4%;
+    margin-right: 4%;
+    display: inline-block;
+}
+
+#verses{
+    display: inline-block;
+    font-size: 27px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.player_button{
+    border-radius: 10px;
+    border-width: 5px;
+    font-size: 27px;
+    padding-left: 20px;
+    margin-left: 62px;
+    padding-right: 20px;
+    margin-right: 62px;
+}
+
+#battle{
+    position: fixed;
+    bottom: 100px;
+    width: 100%;
+}
+
+select{
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 /* stats style*/
 #heading{
     background-color: red;
+    text-align: center;
 }
 
 #stats_title{
     text-align: center;
     padding: 10px;
     font-size: 60px;
+    display: inline-block;
 }
 
 
@@ -64,7 +116,7 @@ td{
     width: 100%;
 }
 
-#add_button{
+.bottom_button{
     border-radius: 10px;
     border-width: 5px;
     position: absolute;
@@ -75,6 +127,14 @@ td{
     transform: translate(-50%, -50%);
 }
 
+.stats_card_title{
+    height: 263px;
+    margin-left: 12%;
+    margin-right: 12%;
+    display: inline-block;
+}
+
+/* 404 error*/
 #web_error{
     text-align: center;
     font-size: 87px;

@@ -1,10 +1,30 @@
 <body>
     <section id="title">
-        <h1 id="home_title">War, The Card Game</h1>
+        <img class="main_card_title" src="resources/king_clubs.jpg"/>
+        <div id="title_section">
+            <p class="home_title">War:</p>
+            <p class="home_title">The Card Game</p>
+        </div>
+        <img class="main_card_title" src="resources/king_diamonds.jpg"/>
         <button class="title_button" onclick="location.href='/stats'">Stats</button>
     </section>
-    <section id="actions">
-        <button class="battle_button" type="button">Battle</button>
+    <section id="players">
+        <select class="player_button">
+            <option>{{player1}}</option>
+            {{#each other_players}}
+            <option>{{this.name}}</option>
+            {{/each}}
+        </select>
+        <p id="verses">VS</p>
+        <select class="player_button">
+            <option>{{player2}}</option>
+            {{#each other_players}}
+            <option>{{this.name}}</option>
+            {{/each}}
+        </select>
+    </section>
+    <section id="battle">
+        <button class="bottom_button" type="button">Battle</button>
         
     </section>
 </body>

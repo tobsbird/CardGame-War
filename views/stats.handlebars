@@ -1,8 +1,13 @@
 <body>
-    <section id="heading">
+    <section id="title">
         <div>
-            <h1 id="stats_title">War</h1>
-            <button class="title_button" onclick="location.href='/'">Home</button>
+            <img class="main_card_title" src="resources/king_clubs.jpg"/>
+        <div id="title_section">
+            <p class="home_title">War:</p>
+            <p class="home_title">The Card Game</p>
+        </div>
+        <img class="main_card_title" src="resources/king_diamonds.jpg"/>
+        <button class="title_button" onclick="location.href='/'">Home</button>
         </div>
     </section>
     <section id="statistics">
@@ -22,7 +27,9 @@
         </table>        
     </section>
     <section id="add_player">
-        <button id="add_button" type="button" name="button">Add Player</button>
+        <form action="/db/add_player" method="POST">
+            <button class="bottom_button" type="submit">Add Player</button>
+        </form>
     </section>
 
 </body>
