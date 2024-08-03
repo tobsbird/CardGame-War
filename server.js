@@ -44,10 +44,6 @@ app.get('/', (req, res) => {
                         player1: results1[0].name,
                         player2: results1[1].name,
                         other_players: results2, 
-                        scripts: [
-                            {file_name: "/testDeck.js",
-                            file_type: "module"}
-                        ]
                     })
                 }
             })
@@ -58,15 +54,35 @@ app.get('/', (req, res) => {
 
 app.get('/stats', (req, res) => {
     database.query('SELECT * FROM players', async(err, results) => {
-        console.log(results)
-        res.status(200).render('stats',{
-            players: results,
-            scripts: [
-                {file_name: "/stats.js"}
-            ]
-        })
+        if(err) console.log(err)
+        else {
+            console.log(results)
+            res.status(200).render('stats',{
+                players: results,
+                scripts: [
+                    {file_name: "/stats.js"}
+                ]
+            })
+        }
     })
-    
+})
+
+app.get('/battle', (req, res) => {
+    database.query('SELECT * FROM players WHERE playing=1', async(err, results) => {
+        if (err) console.log(err)
+        else {
+            console.log(results)
+            res.status(200).render('battle',{
+                player1: results[0].name,
+                player2: results[1].name,
+                scripts: [
+                    { file_name: "/playWar.js",
+                      file_type: "module"
+                    }
+                ]
+            })
+        }
+    })
 })
 
 app.get('*', (req, res) => {

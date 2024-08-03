@@ -1,4 +1,5 @@
 import Deck from './deck.js'
+import { compare_values } from './cardFunctions.js'
 import Card from './deck.js'
 
 export default class War{
@@ -10,66 +11,60 @@ export default class War{
         this.num_cards1 = this.player1.cards.length
         this.player2 = new Deck(hands[1])
         this.num_cards2 = this.player2.cards.length
+        this.cur_card_played1 = new Card()
+        this.cur_card_played2 = new Card()
     }
 
-    /*
-    get get_num_cards1(){
-        return this.player1.length
-    }
-
-    get get_num_cards2(){
-        return this.player2.length
-    }*/
-
+    // Take one WAR turn, one card from each player is revealed and compared
     turn(){
         var cards_played = []
-        var card1 = this.player1.cards.pop()
-        var card2 = this.player2.cards.pop()
-        console.log("card1: " + card1.value + " ; card2: " + card2.value)
-        cards_played.push(card1, card2)
-        if(card1.value == card2.value) {
-            var results = this.war_begin(cards_played)
-            return results
+        this.cur_card_played1 = this.player1.cards.pop()
+        this.cur_card_played2 = this.player2.cards.pop()
+        console.log("card1: " + this.cur_card_played1.get_value + " ; card2: " + this.cur_card_played2.get_value)
+        cards_played.push(this.cur_card_played1, this.cur_card_played2)
+        if(this.cur_card_played1.get_value == this.cur_card_played2.get_value) {
+            cards_played.concat(this.war_begin())
         }
-        else if(parseInt(card1.value) > parseInt(card2.value)) this.player1.cards = cards_played.concat(this.player1.cards)
-        else this.player2.cards = cards_played.concat(this.player2.cards)
+        switch (compare_values([this.cur_card_played1, this.cur_card_played2])) {
+            case (0): 
+                this.player1.cards = cards_played.concat(this.player1.cards)
+                break
+            case (1): 
+                this.player2.cards = cards_played.concat(this.player2.cards)
+                break
+        }
         if(this.check_win() > 0) return 0
         else return 1
     }
 
-    war_begin(cards_played){
-        var card1
-        var card2
+    // Begin WAR if cards revealed were equal value, add all cards to hand of winner player
+    war_begin(){
+        var cards_in_war = []
         while(true){
             console.log("WAR!!")
             for(let i = 0; i < 2; i ++){
                 if(this.check_win() > 0) return 0
-                cards_played.push(this.player1.cards.pop())
-                cards_played.push(this.player2.cards.pop())
+                cards_in_war.push(this.player1.cards.pop())
+                cards_in_war.push(this.player2.cards.pop())
             }
             if(this.check_win() > 0) return 0
-            card1 = this.player1.cards.pop()
-            card2 = this.player2.cards.pop()
-            console.log("card1: " + card1.value + " ; card2: " + card2.value)
-            cards_played.push(card1, card2)
-            if(card1.value != card2.value) break
+            this.cur_card_played1 = this.player1.cards.pop()
+            this.cur_card_played2 = this.player2.cards.pop()
+            console.log("card1: " + this.cur_card_played1.get_value + " ; card2: " + this.cur_card_played2.get_value)
+            cards_in_war.push(this.cur_card_played1, this.cur_card_played2)
+            if(this.cur_card_played1.get_value != this.cur_card_played2.get_value) break
         }
-        if(parseInt(card1.value) > parseInt(card2.value)) {
-            this.player1.cards = cards_played.concat(this.player1.cards)
-        }
-        else {
-            this.player2.cards = cards_played.concat(this.player2.cards)
-        }
-        if(this.check_win() > 0) return 0
-        else return 1
+        return cards_in_war
     }
 
+    // Checks if a player has an empty hand, lose condition of WAR
     check_win(){
         if(this.player1.cards.length == 0) return 1
         else if(this.player2.cards.length == 0) return 2
         else return -1
     }
     
+    // Prints the winner of the current game of war
     winner(){
         if(this.player1.cards.length == 0) console.log("player1")
         else if(this.player2.cards.length == 0) console.log("player2")
