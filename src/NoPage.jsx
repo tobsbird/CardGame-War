@@ -1,0 +1,9 @@
+const NoPage = () => {
+    return (
+        <>
+            <img id="error_image" src="resources/error.jpg"/>
+            <h1 id="web_error">Error</h1>
+            <h5 id="error_description">Sorry, we couldn't find what you were looking for.</h5>
+        </>
+    )
+}
