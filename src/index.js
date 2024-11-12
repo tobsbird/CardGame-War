@@ -1,28 +1,39 @@
-import { React, StrictMode } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  Route,
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements
+} from "react-router-dom";
 import './index.css';
-import App from './App1.js'
-import GamePage from './GamePage.jsx';
+import GamePage from './components/GamePage.jsx';
+import Home from './pages/Home.jsx';
+import War from './pages/War.jsx';
+import BlueMoon from './pages/BlueMoon.jsx';
+import Solitare from './pages/Solitare.jsx';
+import Stats from './pages/Stats.jsx';
+import NoPage from './pages/NoPage.jsx';
 import reportWebVitals from './reportWebVitals';
 
-const myElement = React.createElement('h1', {}, 'I Love JSX!');
-
-const root = ReactDOM.createRoot(document.getElementById('root'), {
-  onUncaughtError: (error, errorInfo) => {
-    console.error('Uncaught error', error, errorInfo.componentStack);
-    },
-    onCaughtError: (error, errorInfo) => {
-    console.error('Caught error', error, errorInfo.componentStack);
-    },
-    onRecoverableError: (error, errorInfo) => {
-    console.error('Recoverable error', error, error.cause, errorInfo.componentStack);
-    }
-});
-root.render(
-  <App />
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<GamePage />}>
+        <Route index element={<Home />} />
+        <Route path="war" element={<War />} />
+        <Route path="bluemoon" element={<BlueMoon />} />
+        <Route path="solitare" element={<Solitare />} />
+        <Route path="stats" element={<Stats />} />
+      </Route>
+    </>
+  )
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

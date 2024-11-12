@@ -1,3 +1,5 @@
+import React from 'react';
+
 const NoPage = () => {
     return (
         <>
@@ -7,3 +9,5 @@ const NoPage = () => {
         </>
     )
 }
+
+export default NoPage;

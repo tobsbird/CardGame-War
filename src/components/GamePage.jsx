@@ -1,9 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
+import React from 'react';
+
 
 const Gamepage = () => {
   return (
-    <div>
-      <h1>Why Cant I be Read</h1>
+    <>
       <nav id='gamepage'>
         <ul>
           <li>
@@ -13,16 +14,19 @@ const Gamepage = () => {
             <Link to="/war">War</Link>
           </li>
           <li>
-            <Link to="/bluemoon">Once In A Blue Moon</Link>
+            <Link to="/bluemoon">BlueMoon</Link>
           </li>
           <li>
             <Link to="/solitare">Solitare</Link>
+          </li>
+          <li>
+            <Link to="/stats">Stats</Link>
           </li>
         </ul>
       </nav>
 
       <Outlet />
-    </div>
+    </>
   )
 };
 
